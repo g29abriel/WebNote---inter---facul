@@ -60,7 +60,7 @@ namespace WebNote.Controllers
             {
                 _context.Add(usuario);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index","Login");
             }
             return View(usuario);
         }

@@ -178,3 +178,5 @@ C:\Users\xxgab\Desktop\inter\WebNote\bin\Debug\netcoreapp3.1\Pomelo.EntityFramew
 C:\Users\xxgab\Desktop\inter\WebNote\bin\Debug\netcoreapp3.1\Pomelo.JsonObject.dll
 C:\Users\xxgab\Desktop\inter\WebNote\obj\Debug\netcoreapp3.1\WebNote.csproj.CoreCompileInputs.cache
 C:\Users\xxgab\Desktop\inter\WebNote\obj\Debug\netcoreapp3.1\WebNote.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\xxgab\Desktop\inter\WebNote\obj\Debug\netcoreapp3.1\Razor\Views\Login\Index.cshtml.g.cs
+C:\Users\xxgab\Desktop\inter\WebNote\obj\Debug\netcoreapp3.1\Razor\Views\Usuarios\Menu.cshtml.g.cs
