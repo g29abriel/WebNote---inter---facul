@@ -180,3 +180,13 @@ C:\Users\xxgab\Desktop\inter\WebNote\obj\Debug\netcoreapp3.1\WebNote.csproj.Core
 C:\Users\xxgab\Desktop\inter\WebNote\obj\Debug\netcoreapp3.1\WebNote.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\xxgab\Desktop\inter\WebNote\obj\Debug\netcoreapp3.1\Razor\Views\Login\Index.cshtml.g.cs
 C:\Users\xxgab\Desktop\inter\WebNote\obj\Debug\netcoreapp3.1\Razor\Views\Usuarios\Menu.cshtml.g.cs
+C:\Users\xxgab\Desktop\inter\WebNote\obj\Debug\netcoreapp3.1\Razor\Views\Atividades\Create.cshtml.g.cs
+C:\Users\xxgab\Desktop\inter\WebNote\obj\Debug\netcoreapp3.1\Razor\Views\Atividades\Delete.cshtml.g.cs
+C:\Users\xxgab\Desktop\inter\WebNote\obj\Debug\netcoreapp3.1\Razor\Views\Atividades\Details.cshtml.g.cs
+C:\Users\xxgab\Desktop\inter\WebNote\obj\Debug\netcoreapp3.1\Razor\Views\Atividades\Edit.cshtml.g.cs
+C:\Users\xxgab\Desktop\inter\WebNote\obj\Debug\netcoreapp3.1\Razor\Views\Atividades\Index.cshtml.g.cs
+C:\Users\xxgab\Desktop\inter\WebNote\obj\Debug\netcoreapp3.1\Razor\Views\Compromissos\Create.cshtml.g.cs
+C:\Users\xxgab\Desktop\inter\WebNote\obj\Debug\netcoreapp3.1\Razor\Views\Compromissos\Delete.cshtml.g.cs
+C:\Users\xxgab\Desktop\inter\WebNote\obj\Debug\netcoreapp3.1\Razor\Views\Compromissos\Details.cshtml.g.cs
+C:\Users\xxgab\Desktop\inter\WebNote\obj\Debug\netcoreapp3.1\Razor\Views\Compromissos\Edit.cshtml.g.cs
+C:\Users\xxgab\Desktop\inter\WebNote\obj\Debug\netcoreapp3.1\Razor\Views\Compromissos\Index.cshtml.g.cs

@@ -15,5 +15,9 @@ namespace WebNote.Data
         }
 
         public DbSet<WebNote.Models.Usuario> Usuario { get; set; }
+
+        public DbSet<WebNote.Models.Atividade> Atividade { get; set; }
+
+        public DbSet<WebNote.Models.Compromisso> Compromisso { get; set; }
     }
 }

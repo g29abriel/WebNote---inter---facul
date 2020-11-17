@@ -10,22 +10,22 @@ using WebNote.Models;
 
 namespace WebNote.Controllers
 {
-    public class UsuariosController : Controller
+    public class AtividadesController : Controller
     {
         private readonly WebNoteContext _context;
 
-        public UsuariosController(WebNoteContext context)
+        public AtividadesController(WebNoteContext context)
         {
             _context = context;
         }
 
-        // GET: Usuarios
+        // GET: Atividades
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Usuario.ToListAsync());
+            return View(await _context.Atividade.ToListAsync());
         }
 
-        // GET: Usuarios/Details/5
+        // GET: Atividades/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,39 +33,39 @@ namespace WebNote.Controllers
                 return NotFound();
             }
 
-            var usuario = await _context.Usuario
+            var atividade = await _context.Atividade
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (usuario == null)
+            if (atividade == null)
             {
                 return NotFound();
             }
 
-            return View(usuario);
+            return View(atividade);
         }
 
-        // GET: Usuarios/Create
+        // GET: Atividades/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Usuarios/Create
+        // POST: Atividades/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,DataNascimento,Sexo,Email,Senha")] Usuario usuario)
+        public async Task<IActionResult> Create([Bind("Id,Nome,Data,Horario")] Atividade atividade)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(usuario);
+                _context.Add(atividade);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Index","Login");
+                return RedirectToAction(nameof(Index));
             }
-            return View(usuario);
+            return View(atividade);
         }
 
-        // GET: Usuarios/Edit/5
+        // GET: Atividades/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,22 +73,22 @@ namespace WebNote.Controllers
                 return NotFound();
             }
 
-            var usuario = await _context.Usuario.FindAsync(id);
-            if (usuario == null)
+            var atividade = await _context.Atividade.FindAsync(id);
+            if (atividade == null)
             {
                 return NotFound();
             }
-            return View(usuario);
+            return View(atividade);
         }
 
-        // POST: Usuarios/Edit/5
+        // POST: Atividades/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,DataNascimento,Sexo,Email,Senha")] Usuario usuario)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Data,Horario")] Atividade atividade)
         {
-            if (id != usuario.Id)
+            if (id != atividade.Id)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace WebNote.Controllers
             {
                 try
                 {
-                    _context.Update(usuario);
+                    _context.Update(atividade);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!UsuarioExists(usuario.Id))
+                    if (!AtividadeExists(atividade.Id))
                     {
                         return NotFound();
                     }
@@ -113,10 +113,10 @@ namespace WebNote.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(usuario);
+            return View(atividade);
         }
 
-        // GET: Usuarios/Delete/5
+        // GET: Atividades/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,33 +124,31 @@ namespace WebNote.Controllers
                 return NotFound();
             }
 
-            var usuario = await _context.Usuario
+            var atividade = await _context.Atividade
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (usuario == null)
+            if (atividade == null)
             {
                 return NotFound();
             }
 
-            return View(usuario);
+            return View(atividade);
         }
 
-        // POST: Usuarios/Delete/5
+        // POST: Atividades/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var usuario = await _context.Usuario.FindAsync(id);
-            _context.Usuario.Remove(usuario);
+            var atividade = await _context.Atividade.FindAsync(id);
+            _context.Atividade.Remove(atividade);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool UsuarioExists(int id)
+        private bool AtividadeExists(int id)
         {
-            return _context.Usuario.Any(e => e.Id == id);
+            return _context.Atividade.Any(e => e.Id == id);
         }
-        public IActionResult Menu() {
-            return View();
-        }
+        
     }
 }

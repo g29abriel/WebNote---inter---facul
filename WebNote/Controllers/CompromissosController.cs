@@ -10,22 +10,22 @@ using WebNote.Models;
 
 namespace WebNote.Controllers
 {
-    public class UsuariosController : Controller
+    public class CompromissosController : Controller
     {
         private readonly WebNoteContext _context;
 
-        public UsuariosController(WebNoteContext context)
+        public CompromissosController(WebNoteContext context)
         {
             _context = context;
         }
 
-        // GET: Usuarios
+        // GET: Compromissos
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Usuario.ToListAsync());
+            return View(await _context.Compromisso.ToListAsync());
         }
 
-        // GET: Usuarios/Details/5
+        // GET: Compromissos/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,39 +33,39 @@ namespace WebNote.Controllers
                 return NotFound();
             }
 
-            var usuario = await _context.Usuario
+            var compromisso = await _context.Compromisso
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (usuario == null)
+            if (compromisso == null)
             {
                 return NotFound();
             }
 
-            return View(usuario);
+            return View(compromisso);
         }
 
-        // GET: Usuarios/Create
+        // GET: Compromissos/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Usuarios/Create
+        // POST: Compromissos/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,DataNascimento,Sexo,Email,Senha")] Usuario usuario)
+        public async Task<IActionResult> Create([Bind("Id,Titulo,Descricao,Data,HorarioInicio,HorarioFim")] Compromisso compromisso)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(usuario);
+                _context.Add(compromisso);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Index","Login");
+                return RedirectToAction(nameof(Index));
             }
-            return View(usuario);
+            return View(compromisso);
         }
 
-        // GET: Usuarios/Edit/5
+        // GET: Compromissos/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,22 +73,22 @@ namespace WebNote.Controllers
                 return NotFound();
             }
 
-            var usuario = await _context.Usuario.FindAsync(id);
-            if (usuario == null)
+            var compromisso = await _context.Compromisso.FindAsync(id);
+            if (compromisso == null)
             {
                 return NotFound();
             }
-            return View(usuario);
+            return View(compromisso);
         }
 
-        // POST: Usuarios/Edit/5
+        // POST: Compromissos/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,DataNascimento,Sexo,Email,Senha")] Usuario usuario)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Titulo,Descricao,Data,HorarioInicio,HorarioFim")] Compromisso compromisso)
         {
-            if (id != usuario.Id)
+            if (id != compromisso.Id)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace WebNote.Controllers
             {
                 try
                 {
-                    _context.Update(usuario);
+                    _context.Update(compromisso);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!UsuarioExists(usuario.Id))
+                    if (!CompromissoExists(compromisso.Id))
                     {
                         return NotFound();
                     }
@@ -113,10 +113,10 @@ namespace WebNote.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(usuario);
+            return View(compromisso);
         }
 
-        // GET: Usuarios/Delete/5
+        // GET: Compromissos/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,33 +124,30 @@ namespace WebNote.Controllers
                 return NotFound();
             }
 
-            var usuario = await _context.Usuario
+            var compromisso = await _context.Compromisso
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (usuario == null)
+            if (compromisso == null)
             {
                 return NotFound();
             }
 
-            return View(usuario);
+            return View(compromisso);
         }
 
-        // POST: Usuarios/Delete/5
+        // POST: Compromissos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var usuario = await _context.Usuario.FindAsync(id);
-            _context.Usuario.Remove(usuario);
+            var compromisso = await _context.Compromisso.FindAsync(id);
+            _context.Compromisso.Remove(compromisso);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool UsuarioExists(int id)
+        private bool CompromissoExists(int id)
         {
-            return _context.Usuario.Any(e => e.Id == id);
-        }
-        public IActionResult Menu() {
-            return View();
+            return _context.Compromisso.Any(e => e.Id == id);
         }
     }
 }
