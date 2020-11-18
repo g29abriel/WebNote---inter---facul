@@ -1,52 +1,49 @@
 ﻿@model WebNote.Models.Compromisso
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Cadastro";
 }
 
-<h1>Create</h1>
-
-<h4>Compromisso</h4>
+<h2 class="jumbotron">Criar novo compromisso</h2>
 <hr />
+
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Titulo" class="control-label"></label>
-                <input asp-for="Titulo" class="form-control" />
+                <input asp-for="Titulo" class="form-control" required/>
                 <span asp-validation-for="Titulo" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Descricao" class="control-label"></label>
-                <input asp-for="Descricao" class="form-control" />
+                <input asp-for="Descricao" class="form-control" required/>
                 <span asp-validation-for="Descricao" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Data" class="control-label"></label>
-                <input asp-for="Data" class="form-control" />
+                <input asp-for="Data" class="form-control" id="dia"/>
                 <span asp-validation-for="Data" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="HorarioInicio" class="control-label"></label>
-                <input asp-for="HorarioInicio" class="form-control" />
+                <input asp-for="HorarioInicio" class="form-control" id="inicio"/>
                 <span asp-validation-for="HorarioInicio" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="HorarioFim" class="control-label"></label>
-                <input asp-for="HorarioFim" class="form-control" />
+                <input asp-for="HorarioFim" class="form-control" id="fim"/>
                 <span asp-validation-for="HorarioFim" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Criar" class="btn btn-default" onclick="validarCampos();" />
+                <a asp-action="Index" class="btn btn-default">Voltar</a>
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
