@@ -28,6 +28,7 @@ namespace WebNote.Controllers
                 if(usuario != null)
                 return RedirectToAction("Menu", "Usuarios");
             }
+            ViewData["erro"] = "Usuário ou senha invalidos";
             return View();
         }
     }

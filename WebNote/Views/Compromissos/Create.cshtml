@@ -4,41 +4,42 @@
     ViewData["Title"] = "Cadastro";
 }
 
-<h2 class="jumbotron">Criar novo compromisso</h2>
-<hr />
+
+
 
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-6 offset-md-3">
+        <h2 class="jumbotron compromisso">Criar novo compromisso</h2>
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Titulo" class="control-label"></label>
-                <input asp-for="Titulo" class="form-control" required/>
+                <input asp-for="Titulo" class="form-control" required />
                 <span asp-validation-for="Titulo" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Descricao" class="control-label"></label>
-                <input asp-for="Descricao" class="form-control" required/>
+                <input asp-for="Descricao" class="form-control" required />
                 <span asp-validation-for="Descricao" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Data" class="control-label"></label>
-                <input asp-for="Data" class="form-control" id="dia"/>
+                <input asp-for="Data" class="form-control" id="dia" />
                 <span asp-validation-for="Data" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="HorarioInicio" class="control-label"></label>
-                <input asp-for="HorarioInicio" class="form-control" id="inicio"/>
+                <input asp-for="HorarioInicio" class="form-control" id="inicio" />
                 <span asp-validation-for="HorarioInicio" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="HorarioFim" class="control-label"></label>
-                <input asp-for="HorarioFim" class="form-control" id="fim"/>
+                <input asp-for="HorarioFim" class="form-control" id="fim" />
                 <span asp-validation-for="HorarioFim" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Criar" class="btn btn-default" onclick="validarCampos();" />
-                <a asp-action="Index" class="btn btn-default">Voltar</a>
+                <input type="submit" value="Criar" class="btn btn-primary btns" onclick="validarHorarioCompromisso();" /> |
+                <a class="btn btn-success btns" asp-area="" asp-controller="Usuarios" asp-action="Menu">Voltar</a>
             </div>
         </form>
     </div>

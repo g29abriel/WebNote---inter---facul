@@ -4,50 +4,51 @@
     ViewData["Title"] = "Detalhes";
 }
 
-<h2 class="jumbotron">Detalhes do compromisso</h2>
-<hr />
 
-<div>
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <h2 class="jumbotron compromisso">Detalhes do compromisso</h2>
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Titulo)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Titulo)
+                <hr />
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Descricao)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Descricao)
+                <hr />
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Data)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Data)
+                <hr />
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.HorarioInicio)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.HorarioInicio)
+                <hr />
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.HorarioFim)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.HorarioFim)
+                <hr />
+            </dd>
+        </dl>
+        <div>
+            <a class="btn btn-primary btns" asp-action="Edit" asp-route-id="@Model.Id">Editar</a> |
+            <a asp-action="Index" class="btn btn-success btns">Voltar</a>
+        </div>
 
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Titulo)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Titulo)
-            <hr />
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Descricao)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Descricao)
-            <hr />
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Data)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Data)
-            <hr />
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.HorarioInicio)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.HorarioInicio)
-            <hr />
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.HorarioFim)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.HorarioFim)
-            <hr />
-        </dd>
-    </dl>
-</div>
-<div>
-    <a class="btn btn-default" asp-action="Edit" asp-route-id="@Model.Id">Editar</a> |
-    <a asp-action="Index" class="btn btn-default">Voltar</a>
+    </div>
 </div>

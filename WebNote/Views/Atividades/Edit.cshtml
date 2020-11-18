@@ -4,32 +4,31 @@
     ViewData["Title"] = "Editar";
 }
 
-<h2 class="jumbotron">Editar atividade</h2>
-<hr />
 
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-6 offset-md-3">
+        <h2 class="jumbotron atividade">Editar atividade</h2>
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
                 <label asp-for="Nome" class="control-label"></label>
-                <input asp-for="Nome" class="form-control" required/>
+                <input asp-for="Nome" class="form-control" required />
                 <span asp-validation-for="Nome" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Data" class="control-label"></label>
-                <input asp-for="Data" class="form-control" id="dia"/>
+                <input asp-for="Data" class="form-control" id="dia" />
                 <span asp-validation-for="Data" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Horario" class="control-label"></label>
-                <input asp-for="Horario" class="form-control" />
+                <input asp-for="Horario" class="form-control" id="hrs" required/>
                 <span asp-validation-for="Horario" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Salvar" class="btn btn-default " onclick="validarDia()" /> |
-                <a asp-action="Index" class="btn btn-default">Voltar</a>
+                <input type="submit" value="Salvar" class="btn btn-primary btns" onclick="validarHorarioAtividade();" /> |
+                <a asp-action="Index" class="btn btn-success btns">Voltar</a>
             </div>
         </form>
     </div>

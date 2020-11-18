@@ -58,9 +58,11 @@ namespace WebNote.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(usuario);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Index","Login");
+                if (temCadastro(usuario.Email)) {
+                    _context.Add(usuario);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction("Index", "Login");
+                }
             }
             return View(usuario);
         }
@@ -151,6 +153,18 @@ namespace WebNote.Controllers
         }
         public IActionResult Menu() {
             return View();
+        }
+
+        public bool temCadastro(string email) {
+            if (email != null) {
+                /*var usuario =  _context.Usuario
+                .FirstOrDefault();*/
+                var usuario = _context.Usuario.FirstOrDefault(x=>x.Email == email);
+                if (usuario == null)
+                    return true;
+            }
+            ViewData["erro"] = "Email já cadastrado!";
+            return false;
         }
     }
 }
